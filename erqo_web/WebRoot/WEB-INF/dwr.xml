@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN"
+    "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+	<allow>
+		<create javascript="erqoBookTypeDwr" creator="spring">
+			<param name="beanName" value="erqoBookTypeFacade"/>
+			<include method="addErqoBookType"/>
+			<include method="updateErqoBookType"/>
+			<include method="getErqoBookTypeById"/>
+		</create>
+		<convert match="net.erqo.model.Erqo_book_type" converter="bean"></convert>
+	</allow>
+</dwr>

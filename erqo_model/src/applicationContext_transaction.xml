@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<!-- 允许查询缓存，个别查询仍然需要被设置为可缓存 -->
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<!-- 能用来完全禁止使用二级缓存。对那些在类的映射定义中指定 <cache> 的类，会默认开启二级缓存 -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<!-- 自定义的 CacheProvider 的类名 -->
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.jdbc.fetch_size">20</prop>
+				<prop key="hibernate.format_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingLocations">
+			<list>
+				<value>classpath*:/net/erqo/model/**/*.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	 <!-- 配置Hibernate的事务管理器 -->  
+	<bean id="transactionManagerImpl"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory">
+			<ref local="sessionFactory" />
+		</property>
+	</bean>	
+	
+ 	<!-- 定义事务拦截器bean -->             
+	<bean id="matchAllTxInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+			<ref bean="transactionManagerImpl" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="*">PROPAGATION_REQUIRED,readOnly
+				</prop>
+			</props>
+		</property>
+	</bean>	
+
+	<!-- 定义BeanNameAutoProxyCreator-->  
+	<bean id="autoProxyCreator"
+		class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="proxyTargetClass" value="true"></property>
+		<property name="frozen" value="true"></property>
+		<property name="beanNames">
+			<list>
+				<value>*Manager</value>
+				<value>*Facade</value>
+			</list>
+		</property>
+		<property name="interceptorNames">
+			<list>
+				<idref local="matchAllTxInterceptor" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

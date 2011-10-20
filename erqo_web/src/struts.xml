@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult"></result-type>
+		</result-types>    
+    
+		<interceptors>
+			<interceptor name="erqoExceptionInterceptor" class="net.erqo.framework.web.ExceptionInterceptor"></interceptor>
+			<interceptor-stack name="erqoDefaultStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="erqoExceptionInterceptor"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="erqoDefaultStack">
+		</default-interceptor-ref>
+		   
+		<global-results>
+			<result name="failure">/common/failure.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="failure" exception="java.lang.Exception" />  
+		</global-exception-mappings>
+		
+		<action name="index">
+			<result type="tiles">tiles.index</result>
+		</action>	    
+    </package>
+    
+    <include file="struts_admin.xml"/>
+    
+</struts>
