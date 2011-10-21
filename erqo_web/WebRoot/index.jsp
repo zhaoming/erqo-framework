@@ -8,7 +8,7 @@
 <meta http-equiv="Expires" content="0"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="author" content=""/>
-<title>内容管理中心</title>
+<title>内容管理中心abc</title>
 <script type="text/javascript" language="javascript" src="${ctx}/scripts/showmenu.js"></script>
 </head>
 <body style="margin: 0px; padding:0px;" scroll="no">
