@@ -11,7 +11,7 @@
 		</property>
 	</bean>
 
-	<bean id="commonDao" class="com.rai.framework.dao.common.CommonDAOHibernate"
+	<bean id="commonDAO" class="net.erqo.framework.dao.hibernate3.CommonDAOHibernate"
 		parent="daoTemplate" abstract="true" />
 
 

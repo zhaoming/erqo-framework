@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="net.erqo.model">
+    <class name="Erqo_users" table="Erqo_users" lazy="true" dynamic-update="true" dynamic-insert="true">
+	  	<cache usage="nonstrict-read-write"/>
+        <comment>user table</comment>
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+		<property name="login_name" column="login_name" />
+		<property name="password" column="password" />
+		<property name="enable" column="enable" />
+		<many-to-one name="role" class="Erqo_roles" column="role_id"/>
+    </class>
+</hibernate-mapping>

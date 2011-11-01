@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+           
+           
+	<bean id="erqoUsersManage" class="net.erqo.service.impl.ErqoUsersManageImpl">
+		<property name="erqoUsersDAO" ref="erqoUsersDAO"></property>
+	</bean>
+
+	<bean id="erqoUsersFacade" class="net.erqo.sessionfacade.impl.ErqoUsersFacadeImpl">
+		<property name="erqoUsersManage" ref="erqoUsersManage"></property>
+	</bean>
+
+	<bean id="erqoRolesManage" class="net.erqo.service.impl.ErqoRolesManageImpl">
+		<property name="erqoRolesDAO" ref="erqoRolesDAO"></property>
+	</bean>
+
+	<bean id="erqoRolesFacade" class="net.erqo.sessionfacade.impl.ErqoRolesFacadeImpl">
+		<property name="erqoRolesManage" ref="erqoRolesManage"></property>
+	</bean>
+
+	<bean id="erqoResourcesManage" class="net.erqo.service.impl.ErqoResourcesManageImpl">
+		<property name="erqoResourceDAO" ref="erqoResourceDAO"></property>
+	</bean>
+
+	<bean id="erqoResourcesFacade" class="net.erqo.sessionfacade.impl.ErqoResourcesFacadeImpl">
+		<property name="erqoResourcesManage" ref="erqoResourcesManage"></property>
+	</bean>
+
+</beans>

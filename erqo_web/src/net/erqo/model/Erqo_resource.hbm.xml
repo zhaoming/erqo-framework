@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="net.erqo.model">
+    <class name="Erqo_resource" table="ERQO_RESOURCES" lazy="true" dynamic-update="true" dynamic-insert="true">
+	  	<cache usage="nonstrict-read-write"/>
+        <comment>resource table</comment>
+		<id name="id" column="ID">
+			<generator class="native" />
+		</id>
+		<property name="type" column="type" />
+		<property name="resource_name" column="resource_name" />
+		<property name="resource_value" column="resource_value" />
+		<bag name="roles" lazy="extra" inverse="true" cascade="all-delete-orphan">
+			<key column="resource_id" />
+			<one-to-many class="Erqo_role_resource"/>
+		</bag>			
+    </class>
+</hibernate-mapping>

@@ -1,7 +1,5 @@
 package net.erqo.framework.web;
 
-import java.util.Map;
-
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,12 +10,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
-import org.apache.struts2.interceptor.SessionAware;
 import org.apache.struts2.util.ServletContextAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public abstract class BaseAction extends ActionSupport implements SessionAware,
+public abstract class BaseAction extends ActionSupport implements 
 		ServletRequestAware, ServletResponseAware, ServletContextAware {
 
 	/**
@@ -30,8 +27,6 @@ public abstract class BaseAction extends ActionSupport implements SessionAware,
 	protected HttpServletRequest request;
 
 	protected HttpServletResponse response;
-
-	protected Map<String, Object> session;
 	
 	protected ServletContext context;   
 	
@@ -43,12 +38,6 @@ public abstract class BaseAction extends ActionSupport implements SessionAware,
 
 	public void setPager(Pager pager) {
 		this.pager = pager;
-	}
-
-	@Override
-	public void setSession(Map<String, Object> _session) {
-		this.session = _session;
-		
 	}
 
 	@Override

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+    <package name="erqo_user" namespace="/userManage" extends="default">
+    	<action name="bookTypeTree" class="net.erqo.web.action.ErqoBookTypeAction" method="getBookTypeTree">
+			<result type="plainText">
+			     <param name="location">/bookTypeTree.xml</param>
+			     <param name="charSet">UTF-8</param>
+			</result>
+    	</action>
+    	
+    	
+    	<action name="login" class="net.erqo.web.action.user.ErqoUserAction" method="login">
+    		<result name="success">/index.jsp</result>
+    	</action>
+    	
+    	<action name="logout" class="net.erqo.web.action.user.ErqoUserAction" method="logout">
+    		<result name="success">/login.jsp</result>
+    	</action>
+    	
+    	<action name="adduser" class="net.erqo.web.action.user.ErqoUserAction" method="adduser">
+    		<result name="success">/index.jsp</result>
+    	</action>
+    	
+    </package>
+</struts>

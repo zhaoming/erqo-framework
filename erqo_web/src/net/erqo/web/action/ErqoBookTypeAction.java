@@ -1,12 +1,6 @@
 package net.erqo.web.action;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import net.erqo.framework.utils.StringUtils;
 import net.erqo.framework.web.BaseAction;
-import net.erqo.model.Erqo_book_type;
-import net.erqo.sessionfacade.ErqoBookTypeFacade;
 
 /**
  * 
@@ -25,15 +19,7 @@ public class ErqoBookTypeAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 7634810724406091144L;
 	
-	private ErqoBookTypeFacade erqoBookTypeFacade;
-
-	public ErqoBookTypeFacade getErqoBookTypeFacade() {
-		return erqoBookTypeFacade;
-	}
-
-	public void setErqoBookTypeFacade(ErqoBookTypeFacade erqoBookTypeFacade) {
-		this.erqoBookTypeFacade = erqoBookTypeFacade;
-	}
+/*
 	
 	private int id;
 	
@@ -62,7 +48,6 @@ public class ErqoBookTypeAction extends BaseAction {
 		StringBuffer btree = new StringBuffer();
 		btree.append("<?xml version=\"1.0\" encoding=\'UTF-8\'?>\n");
 		btree.append("<tree id=\"" + id + "\">\n");
-//		btree.append("<tree id=\"" + "s" + "\">\n");
 		
 		for(Erqo_book_type t : list){
 			if (t.getChildNum()>0){
@@ -84,5 +69,7 @@ public class ErqoBookTypeAction extends BaseAction {
 		
 		StringUtils.renderXml(response, btree.toString());
 	}
+	
+	*/
 
 }

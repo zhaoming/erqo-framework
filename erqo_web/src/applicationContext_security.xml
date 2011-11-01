@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<http auto-config="true" access-denied-page="/jsp/accessDenied.jsp" use-expressions="true">
+		<intercept-url pattern="/css/**" filters="none" />
+		<intercept-url pattern="/images/**" filters="none" />
+		<intercept-url pattern="/js/**" filters="none" />
+		<intercept-url pattern="/login.jsp" filters="none" />
+		<intercept-url pattern="/**" access="isAuthenticated()"  />
+		
+		<form-login login-page="/login.jsp"
+			authentication-failure-url="/login.jsp?error=true"
+			default-target-url="/userManage/login.action" always-use-default-target="true" />
+
+		<logout logout-success-url="/userManage/logout.action" />
+		
+		<custom-filter ref="erqoFilter" before="FILTER_SECURITY_INTERCEPTOR" />
+	</http>
+
+    <beans:bean id="erqoFilter" class="net.erqo.security.FilterSecurityInterceptor">  
+        <beans:property name="authenticationManager" ref="erqoAuthenticationManager" />  
+        <!-- 访问决策器，决定某个用户具有的角色，是否有足够的权限去访问某个资源     -->  
+        <beans:property name="accessDecisionManager" ref="accessDecisionManager" />  
+        <beans:property name="securityMetadataSource" ref="securityMetadataSource" />  
+    </beans:bean>
+
+	<beans:bean id="securityMetadataSource" init-method="loadResourceDefine"
+		class="net.erqo.security.DynamicInvocationSecurityMetadataSource">
+		<beans:property name="erqoRolesFacade" ref="erqoRolesFacade" />
+		<beans:property name="erqoResourcesFacade" ref="erqoResourcesFacade" />
+	</beans:bean>     
+
+    <authentication-manager alias="erqoAuthenticationManager">
+        <authentication-provider user-service-ref="userDetailService">
+        </authentication-provider>
+    </authentication-manager>
+    
+    <beans:bean id="accessDecisionManager" class="net.erqo.security.AccessDecisionManager" />
+    
+    <beans:bean id="userDetailService" class="net.erqo.security.UserDetailService">
+   		<beans:property name="erqoUsersFacade" ref="erqoUsersFacade" />
+    </beans:bean>
+
+</beans:beans>

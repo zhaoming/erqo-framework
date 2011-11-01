@@ -33,6 +33,6 @@
 		</action>	    
     </package>
     
-    <include file="struts_admin.xml"/>
+    <include file="struts_user.xml"/>
     
 </struts>
