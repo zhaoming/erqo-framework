@@ -45,7 +45,7 @@ public class CodeGenerator {
 	}
 
 	public static void main(String[] str) {
-		System.out.println(genratorCode("0008", "00080001"));
+		System.out.println(genratorCode("0", null));
 	}
 
 }
