@@ -24,4 +24,8 @@
 
 	<bean id="erqoRoleResourceDAO" class="net.erqo.dao.hibernate.ErqoRoleResourceDAOHibernate"
 		parent="commonDAO" />
+		
+		
+	<bean id="erqoBookTypeDAO" class="net.erqo.dao.hibernate.ErqoBookTypeDAOHibernate"
+		parent="commonDAO" />
 </beans>

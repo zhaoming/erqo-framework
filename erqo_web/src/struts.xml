@@ -34,5 +34,6 @@
     </package>
     
     <include file="struts_user.xml"/>
+    <include file="struts_book.xml"/>
     
 </struts>

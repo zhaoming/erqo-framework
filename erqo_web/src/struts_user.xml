@@ -6,7 +6,7 @@
 <struts>
 
     <package name="erqo_user" namespace="/userManage" extends="default">
-    	<action name="bookTypeTree" class="net.erqo.web.action.ErqoBookTypeAction" method="getBookTypeTree">
+    	<action name="bookTypeTree" class="net.erqo.web.action.book.ErqoBookTypeAction" method="getBookTypeTree">
 			<result type="plainText">
 			     <param name="location">/bookTypeTree.xml</param>
 			     <param name="charSet">UTF-8</param>

@@ -28,5 +28,14 @@
 	<bean id="erqoResourcesFacade" class="net.erqo.sessionfacade.impl.ErqoResourcesFacadeImpl">
 		<property name="erqoResourcesManage" ref="erqoResourcesManage"></property>
 	</bean>
+	
+	
+	<bean id="erqoBookTypeManage" class="net.erqo.service.impl.ErqoBookTypeManageImpl">
+		<property name="erqoBookTypeDAO" ref="erqoBookTypeDAO"></property>
+	</bean>
+	
+	<bean id="erqoBookTypeFacade" class="net.erqo.sessionfacade.impl.ErqoBookTypeFacadeImpl">
+		<property name="erqoBookTypeManage" ref="erqoBookTypeManage"></property>
+	</bean>
 
 </beans>
