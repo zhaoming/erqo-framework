@@ -1,6 +1,12 @@
-package net.erqo.web.action;
+package net.erqo.web.action.book;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.erqo.framework.utils.StringUtils;
 import net.erqo.framework.web.BaseAction;
+import net.erqo.model.Erqo_book_type;
+import net.erqo.sessionfacade.ErqoBookTypeFacade;
 
 /**
  * 
@@ -19,8 +25,17 @@ public class ErqoBookTypeAction extends BaseAction {
 	 */
 	private static final long serialVersionUID = 7634810724406091144L;
 	
-/*
 	
+	private ErqoBookTypeFacade erqoBookTypeFacade;
+	
+	public ErqoBookTypeFacade getErqoBookTypeFacade() {
+		return erqoBookTypeFacade;
+	}
+
+	public void setErqoBookTypeFacade(ErqoBookTypeFacade erqoBookTypeFacade) {
+		this.erqoBookTypeFacade = erqoBookTypeFacade;
+	}
+
 	private int id;
 	
 	public int getId() {
@@ -53,14 +68,13 @@ public class ErqoBookTypeAction extends BaseAction {
 			if (t.getChildNum()>0){
 				btree.append("<item text=\"" + t.getName() + "\" id=\""
 						+ t.getId() + "\" child=\"1\">\n");
-				btree.append("<userdata name=\"code\">" + t.getCode()
-						+ "</userdata>");
+				btree.append("<userdata name=\"code\">" + t.getCode() + "</userdata>");
+				btree.append("<userdata name=\"layer\">" + t.getLayer() + "</userdata>");
 				btree.append("</item>\n");
 			} else {
-				btree.append("<item text=\"" + t.getName() + "\" id=\""
-						+ t.getId() + "\" child=\"0\">\n");
-				btree.append("<userdata name=\"code\">" + t.getCode()
-						+ "</userdata>\n");
+				btree.append("<item text=\"" + t.getName() + "\" id=\"" + t.getId() + "\" child=\"0\">\n");
+				btree.append("<userdata name=\"code\">" + t.getCode() + "</userdata>\n");
+				btree.append("<userdata name=\"layer\">" + t.getLayer() + "</userdata>");
 				btree.append("</item>\n");
 			}
 		}
@@ -70,6 +84,5 @@ public class ErqoBookTypeAction extends BaseAction {
 		StringUtils.renderXml(response, btree.toString());
 	}
 	
-	*/
 
 }

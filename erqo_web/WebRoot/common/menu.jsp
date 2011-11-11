@@ -12,10 +12,10 @@
 <script type="text/javascript">
 function linkTo(s) {
 	if(s=='a'){
-		parent.mainFrame.location = "${ctx}/pages/admin/ErqoBookTypeManage.jsp";	
+		parent.mainFrame.location = "${ctx}/pages/book/ErqoBookTypeManage.jsp";	
 	}
 	if(s=='b'){
-		parent.mainFrame.location = "${ctx}/pages/admin/addErqoBookType.jsp";
+		parent.mainFrame.location = "${ctx}/pages/book/addErqoBookType.jsp";
 	}
 	
 }

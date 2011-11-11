@@ -6,9 +6,8 @@
 	<allow>
 		<create javascript="erqoBookTypeDwr" creator="spring">
 			<param name="beanName" value="erqoBookTypeFacade"/>
-			<include method="addErqoBookType"/>
-			<include method="updateErqoBookType"/>
 			<include method="getErqoBookTypeById"/>
+			<include method="addErqoBookType"/>
 		</create>
 		<convert match="net.erqo.model.Erqo_book_type" converter="bean"></convert>
 	</allow>

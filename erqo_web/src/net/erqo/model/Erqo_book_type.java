@@ -2,6 +2,7 @@ package net.erqo.model;
 
 import java.io.Serializable;
 
+
 /**
  * 
  * 标题：ERQO.NET
@@ -37,9 +38,11 @@ public class Erqo_book_type implements Serializable {
 	private Integer state;
 
 	/**
-	 * 图书类别父ID
+	 * 父类
 	 */
 	private Integer parent_id;
+	
+
 	
 	/**
 	 * 图书类别CODE
@@ -90,14 +93,6 @@ public class Erqo_book_type implements Serializable {
 
 	public void setState(Integer state) {
 		this.state = state;
-	}
-
-	public Integer getParent_id() {
-		return parent_id;
-	}
-
-	public void setParent_id(Integer parentId) {
-		parent_id = parentId;
 	}
 
 	public String getCode() {
@@ -154,5 +149,13 @@ public class Erqo_book_type implements Serializable {
 	public String toString() {
 		return null;
 	}
-	
+
+	public Integer getParent_id() {
+		return parent_id;
+	}
+
+	public void setParent_id(Integer parentId) {
+		parent_id = parentId;
+	}
+
 }

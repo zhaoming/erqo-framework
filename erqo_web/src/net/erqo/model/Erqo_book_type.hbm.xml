@@ -13,9 +13,12 @@
 		<property name="name" column="NAME" />
 		<property name="code" column="CODE" />
 		<property name="layer" column="LAYER" />
-		<property name="parent_id" column="PARENT_ID" />
 		<property name="seq" column="SEQ" />
 		<property name="state" column="STATE" />
 		<property name="childNum" column="childnum" />
+		
+		<property name="parent_id" column="parent_id"/>
+
+		
     </class>
 </hibernate-mapping>

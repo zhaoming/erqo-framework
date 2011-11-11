@@ -5,6 +5,7 @@
 <%@ taglib uri="http://jsptags.com/tags/navigation/pager" prefix="pg" %>
 <%@ taglib uri="/struts-tags" prefix="s" %>
 <c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<script language="javascript" src="${ctx}/scripts/prototype.js"></script>
 <script>
 var ctxJS = "${pageContext.request.contextPath}";
 String.prototype.getBytes = function() {
