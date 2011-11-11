@@ -16,8 +16,9 @@ public class FrameworkRuntimeException extends RuntimeException{
 		this(errorCode , null);
 	}
 	
-	public FrameworkRuntimeException(String errorCode,Throwable exception){
+	public FrameworkRuntimeException(String errorCode,Exception exception){
 		super(errorCode,exception);
+		this.exception = exception;
 	}
 	
     public Exception getRootCause() {
