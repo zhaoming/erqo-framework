@@ -7,7 +7,6 @@
 <%@include file="/common/meta.jsp" %>
 <link href="${ctx}/styles/style.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="${ctx}/scripts/dhtmlxTree/dhtmlxtree.css">
-
 <script type="text/javascript" src="${ctx}/scripts/dhtmlxTree/dhtmlxcommon.js"></script>
 <script type="text/javascript" src="${ctx}/scripts/dhtmlxTree/dhtmlxtree.js"></script>
 <script language="javascript" src="${ctx}/dwr/util.js"></script>

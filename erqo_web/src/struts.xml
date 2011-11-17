@@ -30,7 +30,13 @@
 		
 		<action name="index">
 			<result type="tiles">tiles.index</result>
-		</action>	    
+		</action>
+		
+		<action name="test" class="net.erqo.web.action.TestAction" method="test">
+			 <result name="success" type="stream">
+				<param name="inputName">im</param>
+			</result>
+		</action>
     </package>
     
     <include file="struts_user.xml"/>

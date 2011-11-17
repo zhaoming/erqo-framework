@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta name="author" content=""/>
 <title>内容管理中心</title>
-<script type="text/javascript" language="javascript" src="${ctx}/scripts/showmenu.js"></script>
+<script type="text/javascript" src="${ctx}/scripts/showmenu.js"></script>
 </head>
 <body style="margin: 0px; padding:0px;" scroll="no">
 <table border="0" cellPadding="0" cellSpacing="0" height="100%" width="100%" style="table-layout: fixed;">

@@ -72,7 +72,9 @@ public class ExceptionInterceptor implements Interceptor {
 		} else {
 			if (logger.isErrorEnabled()) {
 				logger.error("未知异常: ", e);
+				
 			}
+			e.printStackTrace();
 			ErrorCode = actionSupport.getText(ErrorCode);
 			actionSupport.addActionError(ErrorCode);
 		}
